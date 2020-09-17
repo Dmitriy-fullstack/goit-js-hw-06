@@ -1,60 +1,19 @@
-class Car {
-static getSpecs(car){
-  return `maxSpeed: ${car.maxSpeed}, speed: ${car.speed}, isOn: ${car.isOn}, distance: ${car.distance}, price: ${car._price}`;
-  }
-  constructor({speed = 0, price, maxSpeed, isOn = false, distance = 0} = {}) {
-  this.speed = speed;
-    this._price = price;
-    this.maxSpeed = maxSpeed;
-    this.isOn = isOn;
-    this.distance = distance;
-  }
-  get price() {
-  return this._price;
-  }
-  set price(value) {
-  this._price = value;
-  }
-  turnOn() {
-  this.isOn = true;
-  }
-  turnOff() {
-  this.isOn = false;
-    this.speed = 0;
-  }
-  accelerate(value) {
-   let speedUp = this.speed + value;
-    (this.maxSpeed >= speedUp)
-    ? this.speed = speedUp
-    : this.speed = this.maxSpeed;
-  }
-  decelerate(value) {
-  let speedDown = this.speed - value;
-   (speedDown > 0)
-    ?  this.speed = speedDown
-    : this.speed = 0;
-  }
-  drive(hours) {
-  if (this.isOn) {
-      this.distance += hours * this.speed;
-    }
-  }
-}
-const mustang = new Car({ maxSpeed: 200, price: 2000 });
- mustang.turnOn();
- mustang.accelerate(50);
- mustang.drive(2);
- 
- console.log(Car.getSpecs(mustang));
- // 'maxSpeed: 200, speed: 50, isOn: true, distance: 100, price: 2000'
- 
- mustang.decelerate(20);
- mustang.drive(1);
- mustang.turnOff();
- 
- console.log(Car.getSpecs(mustang));
- // 'maxSpeed: 200, speed: 0, isOn: false, distance: 130, price: 2000'
- 
- console.log(mustang.price); // 2000
- mustang.price = 4000;
- console.log(mustang.price); // 4000
+// Write code under this line
+const getUsersWithAge = (array, min, max) => array
+ .filter(({age}) => age > min && age < max)   
+ .map(({name, email}) => ({name, email}));  
+
+ console.log(getUsersWithAge(users, 20, 30));
+/* [
+    { name: 'Ross Vazquez', email: 'rossvazquez@xinware.com' },
+    { name: 'Elma Head', email: 'elmahead@omatom.com' },
+    { name: 'Carey Barr', email: 'careybarr@nurali.com' }
+] */
+
+// console.log(getUsersWithAge(users, 30, 40));
+/* [
+    { name: 'Moore Hensley', email: 'moorehensley@indexia.com' },
+    { name: 'Sharlene Bush', email: 'sharlenebush@tubesys.com' },
+    { name: 'Blackburn Dotson', email: 'blackburndotson@furnigeer.com' },
+    { name: 'Sheree Anthony', email: 'shereeanthony@kog.com' }
+] */
